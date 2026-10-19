@@ -1,0 +1,40 @@
+{
+  "name": "Basic Web Development",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.copilot",
+        "github.copilot-chat",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
+        "ms-vscode.vscode-html-css-preview",
+        "ritwickdey.liveserver",
+        "htmlhint.vshtmlhint",
+        "zignd.html-css-class-completion"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "html.format.indentInnerHtml": true,
+        "html.suggest.html5": true,
+        "html.autoClosingTags": true,
+        "html.completion.attributeDefaultValue": "doublequotes",
+        "css.validate": true,
+        "css.completion.completePropertyWithSemicolon": true,
+        "css.completion.triggerPropertyValueCompletion": true,
+        "editor.wordWrap": "on",
+        "emmet.triggerExpansionOnTab": true,
+        "emmet.showSuggestionsAsSnippets": true,
+        "editor.quickSuggestions": {
+          "other": true,
+          "comments": false,
+          "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+      }
+    }
+  },
+  "postCreateCommand": "echo 'Web development environment ready! Right-click on index.html and select Open with Live Server to preview your site.'",
+  "forwardPorts": [5500, 3000]
+}
