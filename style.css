@@ -8,3 +8,67 @@
 }
 
 /* START BELOW */
+
+/* header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+aside{
+  background-color: #E6E6FE;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+body {
+  font-family: "Blinker", sans-serif;
+  background-color: #F6F7FF;
+  color: black;
+}
+
+main{
+  background-color: #A587E9;
+}
+
+h1,h2,h3 {
+  font-family: "Cabin", sans-serif;
+}
+
+article {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+h2 {
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+h3 {
+  margin-bottom: 16px;
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+.hint-button{
+  background-color: #A587E9;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+.finish-button {
+  background-color: #B59DEC;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+footer{
+  margin-top: 32px;
+}
