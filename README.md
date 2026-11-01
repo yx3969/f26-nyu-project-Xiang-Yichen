@@ -107,3 +107,22 @@ Next week, in accordance with the corresponding assignment requirements, I plan 
 ### **Mockup**
 **My latest Figma/mockup link:**
 [Yichen's Project](https://www.figma.com/design/SNMPC9HrIMjS0UH0I9JDuw/Yichen-Xiang_LandingPage?node-id=0-1&t=PwpFvl7QvtSgscJT-1)
+
+
+## ------------------------------------------------------------------------------
+### **Structure Audit — [Oct. 26]**
+
+**Fixed today:**
+- I checked the page against the mockup, verifying the HTML structure, block order, title, font, color and JavaScript. During the audit process, I did not find any missing sections or major problems during the audit.
+
+- The semantic elements should be placed on the outside. For instance, I placed the `<header>` and `<footer>` sections within the `<body>` and did not wrap them with `<section>`.
+
+- I updated my CSS colors to use variables in `:root` instead of repeating hex values throughout the stylesheet. For example, I stored `#A587E9` as `--primary` and now use `var(--primary)` wherever that purple is needed. This makes the colors easier to update and keeps the stylesheet more consistent.
+
+- I also reviewed my spacing and changed values that did not follow my 8px spacing scale. For example, I changed `12px` padding to `16px`.
+
+**Still missing:**
+- No major structural issues found during this audit.
+
+**One thing I learned**
+- I learned that CSS variables make it easier to manage repeated colors. Instead of changing the same hex value in several places, I can change the value once in `:root`, and every element using that variable updates automatically.

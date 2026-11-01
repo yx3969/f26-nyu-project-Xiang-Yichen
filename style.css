@@ -7,6 +7,16 @@
   box-sizing: border-box;
 }
 
+/* === COLORS === */
+:root {
+  --primary: #A587E9;
+  --finish-button: #B59DEC;
+  --page-background: #F6F7FF;
+  --reminder-background: #E6E6FF;
+  --white: #FFFFFF;
+  --text: #000000;
+}
+
 /* START BELOW */
 
 /* header {
@@ -16,19 +26,19 @@
 } */
 
 aside{
-  background-color: #E6E6FE;
+  background-color: var(--reminder-background);
   margin-top: 24px;
   margin-bottom: 24px;
 }
 
 body {
   font-family: "Blinker", sans-serif;
-  background-color: #F6F7FF;
-  color: black;
+  background-color: var(--page-background);
+  color: var(--text);
 }
 
 main{
-  background-color: #A587E9;
+  background-color: var(--primary);
 }
 
 h1,h2,h3 {
@@ -38,7 +48,7 @@ h1,h2,h3 {
 #steps-container article {
   margin-bottom: 24px;
   padding: 16px;
-  background-color: white;
+  background-color: var(--white);
   border: 1px solid black;
 }
 
@@ -56,21 +66,21 @@ h2 {
 }
 
 .hint-button{
-  background-color: #A587E9;
-  color: white;
-  padding: 12px 24px;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 16px 24px;
   border-radius: 8px;
 }
 
 .finish-button {
-  background-color: #B59DEC;
-  color: white;
-  padding: 12px 24px;
+  background-color: var(--finish-button);
+  color: var(--white);
+  padding: 16px 24px;
   border-radius: 8px;
 }
 
 .reflection-answer {
-  background-color: #E6E6FF;
+  background-color: var(--reminder-background);
   padding: 16px;
 }
 
