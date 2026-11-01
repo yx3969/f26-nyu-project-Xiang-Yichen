@@ -126,3 +126,23 @@ Next week, in accordance with the corresponding assignment requirements, I plan 
 
 **One thing I learned**
 - I learned that CSS variables make it easier to manage repeated colors. Instead of changing the same hex value in several places, I can change the value once in `:root`, and every element using that variable updates automatically.
+
+## ------------------------------------------------------------------------------
+## **Weekly Update - Nov. 1 - Layout with CSS Grid**
+
+### **What I changed this week**
+This week, I focused on making the webpage layout closer to my Figma desktop mockup by using CSS Grid, Flexbox, and a responsive breakpoint.
+
+I added Grid to the overall page structure and used a three-column grid for the reflection-step cards on desktop. I kept the reminder, previous chat, CTA, and footer mostly in normal flow because they are single-column sections.
+
+I used Flexbox in the header to arrange the Back link, title, and Hint button in one horizontal row. I also used Flexbox to center the “Complete My Check” button.
+
+I added a media query so the reflection-step cards stack into one column on smaller screens and display in multiple columns on desktop. I also adjusted the page width, spacing, card alignment, border radius, and margins so the webpage looks closer to my original Figma mockup.
+
+### **Any challenges I encountered**
+One challenge was deciding when to use Grid and when to use Flexbox. I learned that Grid works better for the reflection-step cards because they need rows and columns, while Flexbox works better for elements that are arranged along one direction, such as the header and CTA.
+
+I also learned how responsive layout changes can be controlled with a media query so the same page works at both mobile and desktop widths.
+
+### **Next Week**
+Next, I want to continue refining the responsive layout and improve smaller visual details so the webpage matches the Figma mockup more closely.
