@@ -17,6 +17,21 @@
   --text: #000000;
 }
 
+/* LAYOUT PLAN
+Two-dimensional / Grid:
+- Page shell: organize the major sections vertically with consistent spacing
+- Reflection steps: cards are side by side on desktop
+
+One-dimensional / Flex:
+- Header: Back, title, and Hint are arranged in one horizontal row
+
+Normal flow:
+- Reminder
+- Previous Chat
+- CTA
+- Footer
+*/
+
 /* START BELOW */
 
 /* header {
@@ -25,10 +40,60 @@
   justify-content: space-between;
 } */
 
+
+/* Page shell: keeps major sections in a consistent vertical layout */
+.page {
+  /* I used calc() here so the page keeps 32px of space on the left and right */
+  width: calc(100% - 64px);
+  max-width: 1280px;
+  margin: 0 auto;
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* Reflection steps: three-column desktop layout matches my mockup */
+#steps-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+
+  #steps-container {
+    grid-template-columns: repeat(3, 1fr);
+    /*grid-template-columns:
+      repeat(auto-fit, minmax(240px, 1fr)); */
+  }
+
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+header h1 {
+  text-align: center;
+}
+
 aside{
   background-color: var(--reminder-background);
-  margin-top: 24px;
-  margin-bottom: 24px;
+  
+
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px 24px;
+
+  border-radius: 8px;
 }
 
 body {
@@ -39,6 +104,8 @@ body {
 
 main{
   background-color: var(--primary);
+  padding: 32px 40px;
+  border-radius: 24px;
 }
 
 h1,h2,h3 {
@@ -47,14 +114,26 @@ h1,h2,h3 {
 
 #steps-container article {
   margin-bottom: 24px;
-  padding: 16px;
+  padding: 24px;
   background-color: var(--white);
-  border: 1px solid black;
+  border: none;
+  border-radius: 16px;
+}
+
+#steps-container article p:last-child {
+  background-color: var(--reminder-background);
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 8px;
 }
 
 h2 {
   margin-top: 32px;
   margin-bottom: 8px;
+}
+
+#reflection-steps {
+  width: 100%;
 }
 
 #steps-container h3 {
@@ -65,6 +144,18 @@ h2 {
   margin-bottom: 8px;
 }
 
+.previous-chat h2 {
+  margin-top: 0;
+}
+
+.previous-chat {
+  width: 100%;
+  background-color: var(--white);
+  padding: 24px 32px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
 .hint-button{
   background-color: var(--primary);
   color: var(--white);
@@ -73,10 +164,17 @@ h2 {
 }
 
 .finish-button {
-  background-color: var(--finish-button);
+  background-color: var(--secondary);
   color: var(--white);
-  padding: 16px 24px;
+  padding: 16px 32px;
   border-radius: 8px;
+  border: 2px solid var(--white);
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
 }
 
 .reflection-answer {
@@ -86,4 +184,6 @@ h2 {
 
 footer{
   margin-top: 32px;
+  text-align: center;
+  padding: 16px 0;
 }
