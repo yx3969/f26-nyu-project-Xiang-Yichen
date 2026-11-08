@@ -34,13 +34,6 @@ Normal flow:
 
 /* START BELOW */
 
-/* header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
-
-
 /* Page shell: keeps major sections in a consistent vertical layout */
 .page {
   /* I used calc() here so the page keeps 32px of space on the left and right */
@@ -94,6 +87,10 @@ aside{
   padding: 16px 24px;
 
   border-radius: 8px;
+}
+
+.is-hidden {
+  display: none;
 }
 
 body {

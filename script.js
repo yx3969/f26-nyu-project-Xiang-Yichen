@@ -1,3 +1,19 @@
+// hintIsOpen: students need a reminder they can show or hide while reflecting on an AI answer
+let hintIsOpen = false;
+
+const hintButton = document.getElementById("hint-button");
+const hintMessage = document.getElementById("hint-message");
+
+hintButton.addEventListener("click", () => {
+  hintIsOpen = !hintIsOpen;
+  //console.log("hintIsOpen:", hintIsOpen);
+  if (hintIsOpen) {
+    hintMessage.classList.remove("is-hidden");
+  } else {
+    hintMessage.classList.add("is-hidden");
+  }
+});
+
 // My data array
 const reflectionSteps = [
   {
