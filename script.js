@@ -9,8 +9,10 @@ hintButton.addEventListener("click", () => {
   //console.log("hintIsOpen:", hintIsOpen);
   if (hintIsOpen) {
     hintMessage.classList.remove("is-hidden");
+    hintButton.textContent = "Hide Hint";
   } else {
     hintMessage.classList.add("is-hidden");
+    hintButton.textContent = "Hint";
   }
 });
 
