@@ -20,6 +20,23 @@
 
 - **What else render() works out:** `render()` calculates how many reflection steps are complete and displays a progress message such as “4 of 5 complete.”
 
+
+**What changed:** This week, I changed the reflection section so that the page can update based on the current state. I added a `render()` function, a `completedSteps` state, completion buttons for each reflection step, and a progress message that shows how many steps have been completed.
+
+**Patching vs. rendering:** Before this week, my reflection cards were generated from the array, but their content did not change based on a shared completion state. This week, I moved the card-building process into `render()`, so the page now checks the current state each time it draws the reflection steps. This also keeps the completed cards and the progress message consistent with each other.
+
+**What was hard, and what I tried:** The hardest part for me was understanding how the `completedSteps` state, the reflection cards, and the progress message should work together inside `render()`. At first, I was not sure where to calculate the completed count or how to make each card check its own completion state. I reorganized the code so that `render()` clears the old cards, loops through the reflection-step array, checks each step with an `if`, and then updates the progress message after the loop.
+
+**What happened when I tried to break it:** I tested the page by clicking the completion buttons in different orders. The progress message continued to match the number of completed reflection steps, and completed cards stayed in the correct state. I also checked that the Hint could still open and close normally after the page was re-rendered.
+
+**What I learned or changed my mind about:** This week, I started to understand how the data array, state, and `render()` work together instead of thinking of them as separate parts. The array stores the reflection-step content, the state remembers which steps are completed, and `render()` uses both of them to decide what should appear on the page. This made the overall JavaScript structure much clearer to me.
+
+**Question for Joey:** There are no special issues this week.
+
+**Next week's goal:** Next week, I want to improve the visual design of the “Mark Complete” button and the “0 of 5 complete” progress message so they fit the rest of the interface better. I may also try changing the completion interaction into a small checkbox that users can click to mark a step as finished. After that, I want to make the reflection section more interactive by allowing users to type their own responses instead of only viewing example answers.
+
+**AI use:** I used AI to help me understand how to reorganize my existing Assignment 6 loop into a `render()` function and how the click handlers should change state before calling `render()`. I also asked for help connecting my `completedSteps` state to the reflection cards and creating a progress message from that state. I reviewed and adjusted the code based on my own project structure.
+
 ### Week 8 — November 7, 2026
 
 **State Plan**
