@@ -6,6 +6,7 @@ let completedSteps = [];
 
 const hintButton = document.getElementById("hint-button");
 const hintMessage = document.getElementById("hint-message");
+const hintIcon = document.getElementById("hint-icon");
 const progressMessage = document.getElementById("progress-message");
 
 hintButton.addEventListener("click", () => {
@@ -63,10 +64,12 @@ function render() {
   // Update hint from state
   if (hintIsOpen) {
       hintMessage.classList.remove("is-hidden");
-      hintButton.textContent = "Hide Hint";
+      hintIcon.classList.add("is-on");
+      hintButton.setAttribute("aria-label", "Hide hint");
     } else {
       hintMessage.classList.add("is-hidden");
-      hintButton.textContent = "Hint";
+      hintIcon.classList.remove("is-on");
+      hintButton.setAttribute("aria-label", "Show hint");
     }
   
   // Loop through data and create elements

@@ -184,3 +184,20 @@ footer{
   text-align: center;
   padding: 16px 0;
 }
+
+.hint-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#hint-icon {
+  width: 48px;
+  height: auto;
+  filter: grayscale(100%);
+}
+
+#hint-icon.is-on {
+  filter: grayscale(0%);
+}
