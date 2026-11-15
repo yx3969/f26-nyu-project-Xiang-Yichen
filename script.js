@@ -1,19 +1,16 @@
 // hintIsOpen: students need a reminder they can show or hide while reflecting on an AI answer
 let hintIsOpen = false;
 
+// completedSteps: students need to see which reflection steps they have finished
+let completedSteps = [];
+
 const hintButton = document.getElementById("hint-button");
 const hintMessage = document.getElementById("hint-message");
+const progressMessage = document.getElementById("progress-message");
 
 hintButton.addEventListener("click", () => {
   hintIsOpen = !hintIsOpen;
-  //console.log("hintIsOpen:", hintIsOpen);
-  if (hintIsOpen) {
-    hintMessage.classList.remove("is-hidden");
-    hintButton.textContent = "Hide Hint";
-  } else {
-    hintMessage.classList.add("is-hidden");
-    hintButton.textContent = "Hint";
-  }
+  render();
 });
 
 // My data array
@@ -55,24 +52,65 @@ const reflectionSteps = [
 // Get the container
 const container = document.getElementById("steps-container");
 
-// Loop through data and create elements
-reflectionSteps.forEach(function(step) {
-  // Create elements
-  const stepCard = document.createElement("article");
-  const stepTitle = document.createElement("h3");
-  const question = document.createElement("p");
-  const answer = document.createElement("p");
+  
+// render: draws the reflection steps from their completion state and updates progress
+function render() {
 
-  // Set content
-  stepTitle.textContent = step.step;
-  question.textContent = step.question;
-  answer.textContent = step.answer;
+  container.innerHTML = "";
 
-  // Append to structure
-  stepCard.appendChild(stepTitle);
-  stepCard.appendChild(question);
-  stepCard.appendChild(answer);
-  container.appendChild(stepCard);
+  let completedCount = 0;
 
-  answer.classList.add("reflection-answer");
-});
+  // Update hint from state
+  if (hintIsOpen) {
+      hintMessage.classList.remove("is-hidden");
+      hintButton.textContent = "Hide Hint";
+    } else {
+      hintMessage.classList.add("is-hidden");
+      hintButton.textContent = "Hint";
+    }
+  
+  // Loop through data and create elements
+  reflectionSteps.forEach(function(step) {
+    // Create elements
+    const stepCard = document.createElement("article");
+    const stepTitle = document.createElement("h3");
+    const question = document.createElement("p");
+    const answer = document.createElement("p");
+    const completeButton = document.createElement("button");
+
+    completeButton.textContent = "Mark Complete";
+
+    if (completedSteps.includes(step.step)) {
+      stepCard.classList.add("is-complete");
+      completeButton.textContent = "Completed ✓";
+      completeButton.disabled = true;
+      completedCount = completedCount + 1;
+    }
+
+    completeButton.addEventListener("click", () => {
+      completedSteps.push(step.step);
+      render();
+    });
+
+    // Set content
+    stepTitle.textContent = step.step;
+    question.textContent = step.question;
+    answer.textContent = step.answer;
+
+    answer.classList.add("reflection-answer");
+
+    // Append to structure
+    stepCard.appendChild(stepTitle);
+    stepCard.appendChild(question);
+    stepCard.appendChild(answer);
+    stepCard.appendChild(completeButton);
+    
+    container.appendChild(stepCard);
+
+  });
+
+  progressMessage.textContent = completedCount + " of " + reflectionSteps.length + " complete";
+
+}
+
+render();
