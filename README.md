@@ -6,6 +6,16 @@
 
 ## Project Log
 
+### Week 10 — November 22, 2026
+**Event Plan**
+- **User story:** As a college student, I hope to be able to write and submit my own reflections, thereby recording the active thinking of knowledge points that I have not yet understood, instead of only reading an example answer.
+
+- **The event:** I will use a `submit` event on the Step 5 reflection form. This fits the interaction because the user types their own reflection and then submits it when they are ready.
+
+- **State:** The page will remember the user's Step 5 reflection response in a `userReflection` variable. It starts as an empty string.
+
+- **My function:** The function will answer whether the user has entered a meaningful reflection response. It will take the reflection text as a parameter and return `true` if there is text after removing extra spaces, or `false` if the response is empty.
+
 ### Week 9 — November 15, 2026
 **State Plan**
 - **User story:** As a college student, I want to see which reflection steps I have completed so that I can track my progress through the reflection process.

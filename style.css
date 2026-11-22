@@ -201,3 +201,7 @@ footer{
 #hint-icon.is-on {
   filter: grayscale(0%);
 }
+
+.is-complete {
+  opacity: 0.6;
+}
