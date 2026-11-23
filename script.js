@@ -4,6 +4,11 @@ let hintIsOpen = false;
 // completedSteps: students need to see which reflection steps they have finished
 let completedSteps = [];
 
+// userReflection: remembers the learner's own response for Step 5
+let userReflection = "";
+
+let reflectionMessage = "";
+
 const hintButton = document.getElementById("hint-button");
 const hintMessage = document.getElementById("hint-message");
 const hintIcon = document.getElementById("hint-icon");
@@ -53,6 +58,10 @@ const reflectionSteps = [
 // Get the container
 const container = document.getElementById("steps-container");
 
+// Does the learner have a non-empty reflection response? Returns true or false.
+function hasReflection(text) {
+  return text.trim().length > 0;
+}
   
 // render: draws the reflection steps from their completion state and updates progress
 function render() {
@@ -105,9 +114,72 @@ function render() {
     // Append to structure
     stepCard.appendChild(stepTitle);
     stepCard.appendChild(question);
-    stepCard.appendChild(answer);
     stepCard.appendChild(completeButton);
     
+    if (step.step === "Step 5") {
+    
+      if (hasReflection(userReflection)) {
+        const savedReflection = document.createElement("p");
+
+        savedReflection.textContent = userReflection;
+        savedReflection.classList.add("reflection-answer");
+
+        stepCard.appendChild(savedReflection);
+
+      } else {
+        const reflectionForm = document.createElement("form");
+        const reflectionLabel = document.createElement("label");
+        const reflectionInput = document.createElement("textarea");
+        const submitButton = document.createElement("button");
+        //const message = document.createElement("p");
+
+        reflectionLabel.textContent = "Your reflection";
+        reflectionLabel.setAttribute("for", "reflection-input");
+
+        reflectionInput.id = "reflection-input";
+        reflectionInput.placeholder = "Type your response here...";
+
+        submitButton.type = "submit";
+        submitButton.textContent = "Save Response";
+
+        //message.textContent = reflectionMessage;
+        //message.classList.add("reflection-message");
+
+        reflectionForm.appendChild(reflectionLabel);
+        reflectionForm.appendChild(reflectionInput);
+        reflectionForm.appendChild(submitButton);
+        //reflectionForm.appendChild(message);
+
+        //I removed the always-visible message element so it only appears when there is feedback
+        if (reflectionMessage !== "") {
+          const message = document.createElement("p");
+          message.textContent = reflectionMessage;
+          message.classList.add("reflection-message");
+          reflectionForm.appendChild(message);
+        }
+
+        reflectionForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          if (hasReflection(reflectionInput.value)) {
+            userReflection = reflectionInput.value;
+            reflectionMessage = "";
+          } else {
+            reflectionMessage = "Please write a reflection before saving.";
+          }
+
+          render();
+        });
+
+        stepCard.appendChild(reflectionForm);
+      } 
+
+    }else {
+      answer.textContent = step.answer;
+      answer.classList.add("reflection-answer");
+      stepCard.appendChild(answer);
+    }
+
     container.appendChild(stepCard);
 
   });
