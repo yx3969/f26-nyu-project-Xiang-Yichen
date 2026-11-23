@@ -142,6 +142,7 @@ function render() {
         reflectionLabel.setAttribute("for", "reflection-input");
 
         reflectionInput.id = "reflection-input";
+        reflectionInput.name = "reflection";
         reflectionInput.placeholder = "Type your response here...";
 
         submitButton.type = "submit";
@@ -166,8 +167,10 @@ function render() {
         reflectionForm.addEventListener("submit", (event) => {
           event.preventDefault();
 
-          if (hasReflection(reflectionInput.value)) {
-            userReflection = reflectionInput.value;
+          const submittedReflection = event.target.elements.reflection.value;
+
+          if (hasReflection(submittedReflection)) {
+            userReflection = submittedReflection;
             reflectionMessage = "";
           } else {
             reflectionMessage = "Please write a reflection before saving.";
