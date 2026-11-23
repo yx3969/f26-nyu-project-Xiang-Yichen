@@ -16,6 +16,23 @@
 
 - **My function:** The function will answer whether the user has entered a meaningful reflection response. It will take the reflection text as a parameter and return `true` if there is text after removing extra spaces, or `false` if the response is empty.
 
+
+**What changed:** This week, I changed Step 5 from a card that only showed an example answer into a reflection area where users can write and save their own response. I added a form, a textarea, a submit event, and a new state to remember the user's reflection. I also added an empty-input message so users know they need to write something before saving.
+
+**Why redraw on every event:** When the user submits a reflection, the event handler updates the state and then calls `render()` instead of directly changing the page. This keeps the displayed Step 5 content connected to the current state, so `render()` decides whether the user should see the input form, an error message, or their saved reflection.
+
+**What was hard, and what I tried:** The hardest part for me was understanding how to use a `submit` event with the reflection input in my own project. The assignment introduced `input` and `submit` events, but I still needed to figure out how to connect the Step 5 form, the user's typed response, the new state, and `render()` together. I tested the event in the Console first, then checked that I could read the user's response before saving it to `userReflection`. I also worked through how to handle empty responses and how to display the saved reflection correctly after the page was rendered again.
+
+**What happened when I tried to break it:** I tested the form with a normal response, an empty response, and a response containing only spaces. A normal response was saved and displayed correctly. Empty or space-only responses were not saved and instead showed the message, “Please write a reflection before saving.” I also checked that the Hint interaction and the completed-step progress still worked after submitting the reflection.
+
+**What I learned or changed my mind about:** This week, I better understood how a form submission can become part of the same state-and-render structure I used before. At first, I was not clear about where the user's typed response was stored or how the `submit` event could pass that information into my page. After testing the event object and the textarea value in the Console, I understood that the event gives me access to what the user submitted, then I can save that value in state and let `render()` decide what appears next. I also learned why a separate function like `hasReflection(text)` is useful: it can answer one specific question, such as whether the response is empty, and `render()` can use that result to decide whether to show the input form, an error message, or the saved response.
+
+**Question for Joey:** There are no special issues this week.
+
+**Next week's goal:** Next week, I want to continue refining the visual design and interaction details of the reflection section. One idea is to replace the current completion button with an image-based control. Before a step is completed, the user would see an unfinished icon, and after clicking it, the icon would change to a completed version. I also want to continue adjusting the CSS so the completion state feels more consistent with the rest of the interface.
+
+**AI use:** AI helped me understand how to store the user's response in a new `userReflection` state, how to structure the submit event so it reads from the event object and then calls `render()`, and how to handle empty responses. I also used AI guidance to design the `hasReflection(text)` helper function. This function was not provided directly by the instructor. It was created to adapt the assignment requirement of using a function with a parameter and return value to my reflection-input feature. I reviewed and adjusted the suggested code to fit my existing project structure.
+
 ### Week 9 — November 15, 2026
 **State Plan**
 - **User story:** As a college student, I want to see which reflection steps I have completed so that I can track my progress through the reflection process.
