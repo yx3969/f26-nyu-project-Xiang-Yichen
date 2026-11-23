@@ -90,6 +90,9 @@ function render() {
     const answer = document.createElement("p");
     const completeButton = document.createElement("button");
 
+    const stepHeader = document.createElement("div");
+    stepHeader.classList.add("step-header");
+
     completeButton.textContent = "Mark Complete";
 
     if (completedSteps.includes(step.step)) {
@@ -112,9 +115,10 @@ function render() {
     answer.classList.add("reflection-answer");
 
     // Append to structure
-    stepCard.appendChild(stepTitle);
+    stepHeader.appendChild(stepTitle);
+    stepHeader.appendChild(completeButton);
+    stepCard.appendChild(stepHeader);
     stepCard.appendChild(question);
-    stepCard.appendChild(completeButton);
     
     if (step.step === "Step 5") {
     
@@ -134,6 +138,7 @@ function render() {
         //const message = document.createElement("p");
 
         reflectionLabel.textContent = "Your reflection";
+        reflectionLabel.classList.add("reflection-label");
         reflectionLabel.setAttribute("for", "reflection-input");
 
         reflectionInput.id = "reflection-input";

@@ -15,6 +15,7 @@
   --reminder-background: #E6E6FF;
   --white: #FFFFFF;
   --text: #000000;
+  --dark-purple: #58068C;
 }
 
 /* LAYOUT PLAN
@@ -219,4 +220,15 @@ footer{
   font-size: 16px;
 
   resize: vertical;
+}
+
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reflection-label {
+  color: var(--dark-purple);
+  font-weight: 600;
 }
